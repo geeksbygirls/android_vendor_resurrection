@@ -104,10 +104,15 @@ PRODUCT_COPY_FILES += \
 # Wallpaper
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/Wallpaper/Wallpaper.apk:system/app/Wallpaper/Wallpaper.apk
-
-# DeskClock
+    
+# Adaway
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/DeskClock/DeskClock.apk:system/app/DeskClock/DeskClock.apk
+    vendor/cm/prebuilt/Adaway/Adaway.apk:system/app/Adaway/Adaway.apk
+    
+# 3Minit Battery Resources
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/3Minit/3MinitBatteryResources.apk:system/app/3MinitBatteryResources/3MinitBatteryResources.apk \
+    vendor/cm/prebuilt/3Minit/3MinitBatterySettings.apk:system/app/3MinitBatterySettings/3MinitBatterySettings.apk
 
 # DU Utils Library
 PRODUCT_BOOT_JARS += \
@@ -198,9 +203,9 @@ PRODUCT_PACKAGES += \
 # Custom CM packages
 PRODUCT_PACKAGES += \
     ResurrectionOTA \
-    ResurrectionStats \
     Trebuchet \
     MusicFX \
+    CMFileManager \
     Eleven \
     LockClock \
     CMSettingsProvider \
@@ -209,7 +214,8 @@ PRODUCT_PACKAGES += \
     WeatherProvider \
     OmniStyle \
     OmniSwitch \
-    masquerade
+    masquerade \
+    OmniClockOSS
 
 # Exchange support
 PRODUCT_PACKAGES += \
