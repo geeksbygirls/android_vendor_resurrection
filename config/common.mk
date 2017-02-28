@@ -205,7 +205,6 @@ PRODUCT_PACKAGES += \
     ResurrectionOTA \
     Trebuchet \
     MusicFX \
-    CMFileManager \
     Eleven \
     LockClock \
     CMSettingsProvider \
