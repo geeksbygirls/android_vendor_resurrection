@@ -48,9 +48,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
-# OMS MASQUERADE
+# OMS ThemeInterfacer
 PRODUCT_PACKAGES += \
-   masquerade
+   ThemeInterfacer
 
 # OMS Verified
 PRODUCT_PROPERTY_OVERRIDES := \
