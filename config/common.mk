@@ -213,6 +213,7 @@ PRODUCT_PACKAGES += \
     WeatherProvider \
     OmniStyle \
     OmniSwitch \
+    OmniJaws \
     OmniClockOSS
 
 # Exchange support
