@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build type chooser for the Resurrection Remix ROM
+# Root method chooser for the Resurrection Remix ROM
 # Specify colors utilized in the terminal
     red=$(tput setaf 1)             #  red
     grn=$(tput setaf 2)             #  green
@@ -22,13 +22,13 @@
     blurev=${rev}$(tput setaf 4)
     normal='tput sgr0'
 
-echo -e ${ylw}"\n\n ▼ Which root option do you want?\n"${txtrst}
+echo -e ${ylw}"\n\n ▼ Which root method do you want to use?\n"${txtrst}
 echo -e "";
 echo -e ${blu}" 〉 1- MAGISK "${txtrst}${red}"    ︱ Build with Magisk Manager and zip"${txtrst}
 echo -e "";
 echo -e ${blu}" 〉 2- CM "${txtrst}${red}"  ︱ Build with CM Root built in"${txtrst}
 echo -e "";
-echo -e ${blu}" 🕑  30/sec Time-out"${txtrst}${red}"︱ Default option"${txtrst}
+echo -e ${blu}" 🕑  15/sec Time-out"${txtrst}${red}"︱ Default option"${txtrst}
 echo -e "";
 echo -e ${cya}" ▼ Pick a number"${txtrst}
 echo -e "";
@@ -38,7 +38,7 @@ sleep 1
 if [ "$askvariant" == "1" ]
 then
 echo -e "";
-echo -e ${blu}" ▪ Building with Magisk Root "${txtrst}
+echo -e ${blu}" ▪ Using Magisk Root! "${txtrst}
 export WITH_MAGISK=true
 echo -e "";
 echo -e "";
@@ -48,7 +48,7 @@ fi
 if [ "$askvariant" == "2" ]
 then
 echo -e "";
-echo -e ${blu}" ▪ Building with CM Root "${txtrst}
+echo -e ${blu}" ▪ Using CM Root! "${txtrst}
 export WITH_SU=true
 echo -e "";
 echo -e "";

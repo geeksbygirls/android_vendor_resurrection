@@ -41,21 +41,20 @@ fi
  
 touch $Changelog
 
-
-# ask for days and version
+if [ -z $days_to_log ];then
+# ask for days and version if not already specified
 echo ""
 echo ${ylw}" ▼ For how many days changelog do you want to generate?"${txtrst}
 echo ""
-echo -e ${blu}" 🕑  30/sec Time-out "${txtrst}${red}"︱ 7 Days by default"${txtrst}
+echo -e ${blu}" 〉 30/sec Time-out"${txtrst}${red}" ︱ 7 Days by default"${txtrst}
 echo -e "";
 echo -e ${cya}" ▼ Type a number"${txtrst}
 echo -e "";
 # use 'export days_to_log=5' before '. build/envsetup.sh' were 5 is days to log
-if [ -z $days_to_log ];then
 read -r -t 30 days_to_log || days_to_log=7
 fi
 echo >> $Changelog;
-echo " ▼ $source_name Ver 5.8.2 Changelog"    >> $Changelog;
+echo " ▼ $source_name Ver 5.8.4 Changelog"    >> $Changelog;
 echo '' >> $Changelog;
 echo >> $Changelog;
 
@@ -66,7 +65,7 @@ do
 export After_Date=`date --date="$i days ago" +%m/%d/%Y`
 k=$(expr $i - 1)
 	export Until_Date=`date --date="$k days ago" +%m/%d/%Y`
-    echo ""	
+    echo ""
 	echo ${blu}" 〉 Generating day number $i ▪ $Until_Date.."${txtrst}
 	source=$(repo forall -pc 'git log --oneline --after=$After_Date --until=$Until_Date');
 
@@ -74,7 +73,7 @@ k=$(expr $i - 1)
 
 		echo " ▼ $Until_Date" >> $Changelog;
 		echo '' >> $Changelog;
-		repo forall -pc 'git log --oneline --after=$After_Date --until=$Until_Date' | sed 's/^$/#EL /' | sed 's/^/ ▪ /' | sed 's/ ▪ #EL //' >> $Changelog
+		repo forall -pc 'git log --oneline --after=$After_Date --until=$Until_Date' | grep -v "Automatic translation import" | sed 's/^$/#EL /' | sed 's/^/ ▪ /' | sed 's/ ▪ #EL //' >> $Changelog
 		echo >> $Changelog;
 	fi
 

@@ -129,9 +129,10 @@ PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh \
     vendor/cm/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
-# Backup Services whitelist
+# System feature whitelists
 PRODUCT_COPY_FILES += \
-    vendor/cm/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
+    vendor/cm/config/permissions/backup.xml:system/etc/sysconfig/backup.xml \
+    vendor/cm/config/permissions/power-whitelist.xml:system/etc/sysconfig/power-whitelist.xml
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
@@ -204,17 +205,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ResurrectionOTA \
     Trebuchet \
-    MusicFX \
+    AudioFX \
     Eleven \
     LockClock \
     CMSettingsProvider \
     ExactCalculator \
+    Jelly \
     LiveLockScreenService \
     WeatherProvider \
     OmniStyle \
     OmniSwitch \
     OmniJaws \
-    OmniClockOSS
+    OmniClockOSS \
+    ThemeInterfacer
 
 # Exchange support
 PRODUCT_PACKAGES += \
@@ -307,7 +310,6 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PACKAGES += \
     procmem \
     procrank
-endif
 
 # Conditionally build in su
 ifeq ($(WITH_SU),true)
@@ -318,13 +320,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.rr.root=cm_root
 endif
+endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.root_access=2
 
 DEVICE_PACKAGE_OVERLAYS += vendor/cm/overlay/common
 
-PRODUCT_VERSION = 5.8.2
+PRODUCT_VERSION = 5.8.5
 ifeq ($(WITH_MAGISK),true)
 ifneq ($(RR_BUILDTYPE),)
 RR_VERSION := RR-N-MAGISK-v$(PRODUCT_VERSION)-$(shell date -u +%Y%m%d)-$(CM_BUILD)-$(RR_BUILDTYPE)
@@ -345,8 +348,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
  ro.rr.version=$(RR_VERSION) \
  ro.modversion=$(RR_VERSION) \
  rr.build.type=$(RR_BUILDTYPE) \
- Default \
- rr.ota.version= $(shell date -u +%Y%m%d) \
+ rr.ota.version= $(shell date +%Y%m%d) \
+ ro.rr.tag=$(shell grep "refs/tags" .repo/manifest.xml  | cut -d'"' -f2 | cut -d'/' -f3)
 
 CM_DISPLAY_VERSION := $(RR_VERSION)
 
@@ -355,9 +358,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_EXTRA_RECOVERY_KEYS += \
   vendor/cm/build/target/product/security/lineage
- 
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/cm/config/partner_gms.mk
--include vendor/cyngn/product.mk
 
 $(call prepend-product-if-exists, vendor/extra/product.mk)
