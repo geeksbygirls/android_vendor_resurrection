@@ -39,7 +39,7 @@ if [ "$askvariant" == "1" ]
 then
 echo -e "";
 echo -e ${blu}" ▪ Using Magisk Root! "${txtrst}
-export WITH_MAGISK=true
+export WITH_ROOT_METHOD="magisk";
 echo -e "";
 echo -e "";
 $normal
@@ -49,7 +49,7 @@ if [ "$askvariant" == "2" ]
 then
 echo -e "";
 echo -e ${blu}" ▪ Using CM Root! "${txtrst}
-export WITH_SU=true
+export WITH_ROOT_METHOD="su";
 echo -e "";
 echo -e "";
 $normal
