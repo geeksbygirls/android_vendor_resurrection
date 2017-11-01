@@ -218,7 +218,8 @@ PRODUCT_PACKAGES += \
     OmniSwitch \
     OmniJaws \
     OmniClockOSS \
-    ThemeInterfacer
+    ThemeInterfacer \
+    alogcat
 
 # Exchange support
 PRODUCT_PACKAGES += \
