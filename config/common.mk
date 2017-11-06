@@ -195,7 +195,8 @@ PRODUCT_PACKAGES += \
     libemoji \
     Terminal \
     LiveWallpapersPicker \
-    PhotoTable
+    PhotoTable \
+    CustomTiles
 
 # Include explicitly to work around GMS issues
 PRODUCT_PACKAGES += \
