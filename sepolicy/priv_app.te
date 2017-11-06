@@ -1,3 +1,1 @@
-allow priv_app device:dir read;
-allow priv_app sysfs_mac_address:file read;
 allow priv_app system_app_data_file:file rw_file_perms;
