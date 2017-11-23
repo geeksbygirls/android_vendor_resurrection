@@ -115,6 +115,17 @@ PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/3Minit/3MinitBatteryResources.apk:system/app/3MinitBatteryResources/3MinitBatteryResources.apk \
     vendor/cm/prebuilt/3Minit/3MinitBatterySettings.apk:system/app/3MinitBatterySettings/3MinitBatterySettings.apk
 
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so \
+    vendor/cm/prebuilt/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf
+
+# Camera Effects for devices without a vendor partition
+ifneq ($(filter shamu,$(TARGET_PRODUCT)),)
+PRODUCT_COPY_FILES +=  \
+    vendor/addons/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
+    vendor/addons/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
+endif
+
 # DU Utils Library
 PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
@@ -219,7 +230,8 @@ PRODUCT_PACKAGES += \
     OmniSwitch \
     OmniJaws \
     OmniClockOSS \
-    ThemeInterfacer
+    ThemeInterfacer \
+    alogcat
 
 # Exchange support
 PRODUCT_PACKAGES += \
