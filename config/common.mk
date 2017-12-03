@@ -98,9 +98,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/cm/Features.mkdn:system/etc/RR/Features.txt
 
-# NexusLauncher
+# Launcher3
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/NexusLauncher/NexusLauncher.apk:system/app/NexusLauncher/NexusLauncher.apk
+    vendor/cm/prebuilt/Launcher3/Launcher3.apk:system/priv-app/Launcher3/Launcher3.apk
+
 
 # Wallpaper
 PRODUCT_COPY_FILES += \
@@ -118,13 +119,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so \
     vendor/cm/prebuilt/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf
-
-# Camera Effects for devices without a vendor partition
-ifneq ($(filter shamu,$(TARGET_PRODUCT)),)
-PRODUCT_COPY_FILES +=  \
-    vendor/addons/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
-    vendor/addons/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
-endif
 
 # DU Utils Library
 PRODUCT_BOOT_JARS += \
