@@ -97,14 +97,6 @@ PRODUCT_COPY_FILES += \
 # Copy features.txt from the path
 PRODUCT_COPY_FILES += \
     vendor/cm/Features.mkdn:system/etc/RR/Features.txt
-
-# NexusLauncher
-PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/NexusLauncher/NexusLauncher.apk:system/app/NexusLauncher/NexusLauncher.apk
-
-# Wallpaper
-PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/Wallpaper/Wallpaper.apk:system/app/Wallpaper/Wallpaper.apk
     
 # Adaway
 PRODUCT_COPY_FILES += \
@@ -125,6 +117,12 @@ PRODUCT_COPY_FILES +=  \
     vendor/addons/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
     vendor/addons/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
 endif
+
+# Included prebuilt apk's
+PRODUCT_PACKAGES += \
+    DeskClock \
+    NexusLauncher \
+    Wallpaper
 
 # DU Utils Library
 PRODUCT_BOOT_JARS += \
