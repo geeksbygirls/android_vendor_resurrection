@@ -227,7 +227,6 @@ PRODUCT_PACKAGES += \
     OmniStyle \
     OmniSwitch \
     OmniJaws \
-    OmniClockOSS \
     ThemeInterfacer \
     alogcat
 
