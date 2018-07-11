@@ -24,9 +24,9 @@
 
 echo -e ${ylw}"\n\n ▼ Which build-type do you want to choose?\n"${txtrst}
 echo -e "";
-echo -e ${blu}" 〉 1- gelstatset "${txtrst}${red}"    ︱ For gelstatset build"${txtrst}
+echo -e ${blu}" 〉 1- gelstatset "${txtrst}${red}"  ︱ For gelstatset build"${txtrst}
 echo -e "";
-echo -e ${blu}" 〉 2- Official "${txtrst}${red}"  ︱ Only for the official builds by the maintainers"${txtrst}
+echo -e ${blu}" 〉 2- Unofficial "${txtrst}${red}"  ︱ For the unofficial builds"${txtrst}
 echo -e "";
 echo -e ${blu}" 〉 3- Nightly "${txtrst}${red}"     ︱ Only for the official daily builds by the maintainers"${txtrst}
 echo -e "";
@@ -60,8 +60,8 @@ fi
 if [ "$askvariant" == "2" ]
 then
 echo -e "";
-echo -e ${blu}" ▪ Building official variant "${txtrst}
-export RR_BUILDTYPE=Official
+echo -e ${blu}" ▪ Building unofficial variant "${txtrst}
+export RR_BUILDTYPE=Unofficial
 echo -e "";
 echo -e "";
 $normal
